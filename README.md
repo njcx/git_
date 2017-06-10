@@ -61,6 +61,31 @@ sudo apt-get install git git-core
 >git log
 
 ```
+# 2
+
+既然是版本控制系统，我们肯定可以回退到历史上某个文件状态，我们先用 git log 看一下有哪些历史commit tag
+
+```bash
+
+commit 04eca079d35b3b2136a0e4054b946f96c9130370
+Author: nJcx <1666276469@qq.com>
+Date:   Thu Jun 8 18:28:07 2017 +0800
+
+    first commit
+
+commit 5b42df0cfd1b5d6cdfc7d5b251ea770ca35cbec1
+Author: nJcx <1666276469@qq.com>
+Date:   Thu Jun 8 18:16:57 2017 +0800
+
+    add more
+
+commit d171df385fb3af5b092c65bfea5011316de936d0
+Author: nJcx <1666276469@qq.com>
+Date:   Thu Jun 8 17:53:49 2017 +0800
+
+    first commit
+
+```
 
 
 
