@@ -66,6 +66,7 @@ sudo apt-get install git git-core
 既然是版本控制系统，我们肯定可以回退到历史上某个文件状态，我们先用 git log 看一下有哪些历史commit tag
 
 ```bash
+
 commit 5b42df0cfd1b5d6cdfc7d5b251ea770ca35cbec1
 Author: nJcx <1666276469@qq.com>
 Date:   Thu Jun 8 18:16:57 2017 +0800
@@ -77,10 +78,8 @@ Author: nJcx <1666276469@qq.com>
 Date:   Thu Jun 8 17:53:49 2017 +0800
 
     first commit
-
 ```
-就像这样
-
+就像这样,前面介绍了，在工作区里面有.git目录，这个是git版本库，我们的相关操作都会在这个目录产生记录。我们在工作区里面通过 git add xxx 把相关文件的改动提交到暂存区index,我们又通过git commit 把文件状态改动提交到默认的主分支master上，也就是说，我们会经过两个状态，一个是提交到暂存区index，另一个就是提交到分支上。
 
 
  
