@@ -99,5 +99,75 @@ Date:   Thu Jun 8 17:53:49 2017 +0800
 提交为空，但是存在尚未跟踪的文件（使用 "git add" 建立跟踪）
 
 ```
+我们先把它加入跟踪状态，
+
+```bash
+
+> git add README2.md && git commit -m "add file README2.MD
+
+```
+现在我们编辑它
+
+```bash
+
+> echo "by nJcx" >> README2.md
+
+```
+下面，我们就会存在3种状态：
+
+- 1，就是文件在工作区被修改了，没有git add 到暂存区
+- 2，文件被 git add 到暂存区了，但是没有提交到分支上
+- 3，文件的修改被git commit 分支上了
+
+第一种状态
+```bash
+> git checkout -- README2.md
+```
+
+第二种
+```bash
+> git reset HEAD README2.md
+> git checkout -- README2.md
+// HEAD,表示最新的版本。
+```
+第三种
+
+```bash
+> git reset --hard HEAD^ 
+//这里也可以用 commit_id,通过git log 或者 git reflog 查看
+// HEAD^表示上一个版本，上上一个版本就是 HEAD^^
+```
+第三种有一个缺点，如果一次commit 多个文件，回退版本的时候会把其他正常的文件也回退了，所以有的时候，我们可以把不想回退的文件单独commit一下
+
+如果，我们回退的时候，又后悔了，又想回到某个最新的版本，那该怎么办？
+
+```bash
+> git reflog
+> git reset --hard commit_id
+```
+
+# 3
+讲版本控制系统就不能不讲分支，我们用 git branch 查看当前有哪些分支以及所在分支
+```bash
+
+njcx@njcx:~/桌面/git$ git branch
+* master
+
+```
+我们创建一个dev 分支,并切换分支
+
+```bash
+njcx@njcx:~/桌面/git$  git checkout -b dev
+njcx@njcx:~/桌面/git$  git branch
+* dev
+  master
+//创建分支:git branch <name>
+//切换分支: git checkout <name>
+//创建+切换分支: git checkout ‐b <name>
+//删除分支: git branch ‐d <name>
+```
+
+我们位于dev分支上，无论我们在dev分支上面做什么，都不会影响master分支的文件状态，只要我们切换回master分支，文件就会恢复到master所在的文件状态，其实，这就是版本控制系统的精髓所在
+
 
  
